@@ -32,10 +32,9 @@ def iter_pages(file_location: str) -> typing.Iterator[Page]:
     yield from _iter_pages(tree)
 
 
-def reset_doctype(ocr_file_location: str) -> None:
+def reset_doctype(ocr_file_location: str, outfile_location: str) -> None:
     parser = etree.HTMLParser()
     tree = etree.parse(ocr_file_location, parser=parser)
-    #tree.write(ocr_file_location, doctype=DOCTYPE, pretty_print=True)
     ocr_string = etree.tostring(
         tree,
         pretty_print=True,
@@ -51,7 +50,7 @@ def reset_doctype(ocr_file_location: str) -> None:
     #     the existing doctype and declaration, again rendering the document unparseable
     # So just do the first case and throw out the 3rd line (the original declaration)
     ocr_string = b'\n'.join(line for i, line in enumerate(ocr_string.split(b'\n')) if i != 2)
-    with open(ocr_file_location, "wb") as f:
+    with open(outfile_location, "wb") as f:
         f.write(ocr_string)
 
 

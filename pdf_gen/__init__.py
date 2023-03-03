@@ -17,10 +17,14 @@ def generate(dir_file: str, ocr_dir: str, out_filename: str):
                 print("No text, skipping for now")
                 continue
             print(f"Resetting hocr file doc type")
-            pdf_gen.mets_parser.reset_doctype(ocr_dir + page.ocr_file.location)
+            modded_ocr_location = f"{tmpdirname}/{page.ocr_file.location}"
+            pdf_gen.mets_parser.reset_doctype(
+                ocr_file_location=(ocr_dir + page.ocr_file.location),
+                outfile_location=modded_ocr_location,
+            )
             print("Generating pdf")
             pdf_gen.page_generator.generate_pdf_page(
-                hocr_filename=(ocr_dir + page.ocr_file.location),
+                hocr_filename=modded_ocr_location,
                 image_filename=(ocr_dir + page.image_file.location),
                 out_filename=full_name,
             )
