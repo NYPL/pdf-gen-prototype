@@ -38,7 +38,7 @@ def generate(dir_file: str, ocr_dir: str, out_filename: str):
 
 if __name__ == "__main__":
     generate(
-        dir_file="/Users/sarangjoshi/code/pdf-gen/data/c3263821/UCAL_C3263821.xml",
-        ocr_dir="/Users/sarangjoshi/code/pdf-gen/data/c3263821/",
-        out_filename="/Users/sarangjoshi/code/pdf-gen/sample.pdf",
+        dir_file="data/c3263821/UCAL_C3263821.xml",
+        ocr_dir="data/c3263821/",
+        out_filename="sample.pdf",
     )
