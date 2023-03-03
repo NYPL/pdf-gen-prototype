@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pdf-gen"
+version = "0.1.0"
+description = ""
+authors = ["Sarang Joshi <sarangjoshi@nypl.org>"]
+readme = "README.md"
+packages = [{include = "pdf_gen"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+lxml = "4.9.2"
+ocrmypdf = "^14.0.3"
+pypdf2 = "^3.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
