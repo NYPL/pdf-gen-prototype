@@ -32,7 +32,15 @@ def iter_pages(file_location: str) -> typing.Iterator[Page]:
     yield from _iter_pages(tree)
 
 
-def reset_doctype(ocr_file_location: str, outfile_location: str) -> None:
+def is_djvu_xml(ocr_file_location: str) -> bool:
+    # Just have to inspect the file directly unfortunately
+    with open(ocr_file_location, "r") as f:
+        for line in f.readlines():
+            if line.strip() == "<!DOCTYPE DjVuXML>":
+                return True
+
+
+def reset_hocr_doctype(ocr_file_location: str, outfile_location: str) -> None:
     parser = etree.HTMLParser()
     tree = etree.parse(ocr_file_location, parser=parser)
     ocr_string = etree.tostring(
