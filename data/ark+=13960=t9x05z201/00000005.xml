@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE DjVuXML>
+<DjVuXML>
+  <BODY>
+    <OBJECT data="file://localhost//tmp/derive/springinnewhamp00mckarich//springinnewhamp00mckarich.djvu" height="3236" type="image/x.djvu" usemap="springinnewhamp00mckarich_0005.djvu" width="1968">
+<PARAM name="PAGE" value="springinnewhamp00mckarich_0005.djvu"/>
+<PARAM name="DPI" value="500"/>
+<HIDDENTEXT>
+<PAGECOLUMN>
+<REGION backgroundColor="14680063">
+<PARAGRAPH>
+<LINE>
+<WORD coords="582,1200,978,1124">SPRING</WORD>
+<WORD coords="1048,1200,1168,1128">IN</WORD>
+</LINE>
+<LINE>
+<WORD coords="376,1344,630,1270">NEW</WORD>
+<WORD coords="704,1346,1362,1270">HAMPSHIRE</WORD>
+</LINE>
+</PARAGRAPH>
+<PARAGRAPH>
+<LINE>
+<WORD coords="442,1474,626,1416">AND</WORD>
+<WORD coords="660,1476,968,1416">OTHER</WORD>
+<WORD coords="1000,1476,1296,1416">POEMS</WORD>
+</LINE>
+</PARAGRAPH>
+</REGION>
+</PAGECOLUMN>
+</HIDDENTEXT>
+</OBJECT>
+  </BODY>
+</DjVuXML>
