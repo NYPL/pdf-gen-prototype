@@ -12,6 +12,9 @@ lxml = "4.9.2"
 ocrmypdf = "^14.0.3"
 pypdf2 = "^3.0.1"
 
+[tool.poetry.dev-dependencies]
+pytest = "7.1.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
