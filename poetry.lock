@@ -671,15 +671,15 @@ files = [
 ]
 
 [[package]]
-name = "pypdf2"
-version = "3.0.1"
+name = "pypdf"
+version = "3.5.1"
 description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "PyPDF2-3.0.1.tar.gz", hash = "sha256:a74408f69ba6271f71b9352ef4ed03dc53a31aa404d29b5d31f53bfecfee1440"},
-    {file = "pypdf2-3.0.1-py3-none-any.whl", hash = "sha256:d16e4205cfee272fbdc0568b68d82be796540b1537508cef59388f839c191928"},
+    {file = "pypdf-3.5.1-py3-none-any.whl", hash = "sha256:d1bf57178cb8b75b6681c5ad786f9f1a8cd25899e8f79db6f537e215e16a27b2"},
+    {file = "pypdf-3.5.1.tar.gz", hash = "sha256:5cd99bdae4815842fb0d3b96220839d669f86c1fb57f46f0af1bb2994dfabfcb"},
 ]
 
 [package.extras]
@@ -824,4 +824,4 @@ telegram = ["requests"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "eeba56c5e9e4f9e2e7ee11dfdaea1e6f01704be60efebda5c6cbb4806afe594b"
+content-hash = "af39dd7a2ca4041ecb8ec038a631c2b3c5c11c5f878acfa987be55051df6f5c4"

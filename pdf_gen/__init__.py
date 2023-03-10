@@ -2,10 +2,11 @@ import argparse
 import os.path
 import tempfile
 
+import pypdf
+
 import pdf_gen.djvu_generator
 import pdf_gen.mets_parser
 import pdf_gen.page_generator
-from PyPDF2 import PdfMerger
 
 _DEFAULT_MANIFEST = "data/c3263821/UCAL_C3263821.xml"
 _DEFAULT_OCR_DIR = "data/c3263821/"
@@ -27,7 +28,7 @@ def main():
 
 def generate(dir_file: str, ocr_dir: str, out_filename: str):
     # In order sequence of generated pages
-    merger = PdfMerger()
+    merger = pypdf.PdfMerger()
     total_filesize = 0
     with tempfile.TemporaryDirectory() as tmpdirname:
         for page in pdf_gen.mets_parser.iter_pages(dir_file):
