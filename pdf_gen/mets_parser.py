@@ -25,6 +25,13 @@ class FileDef:
 class Page:
     image_file: FileDef
     ocr_file: FileDef
+    label: str
+    order_label: str
+    order: str
+
+    @property
+    def is_toc(self) -> bool:
+        return self.label and "TABLE_OF_CONTENTS" in self.label
 
 
 def iter_pages(file_location: str) -> typing.Iterator[Page]:
@@ -85,7 +92,13 @@ def _parse_page(page_elem, file_mapping) -> Page:
         if file_mapping[fptr.get("FILEID")].use == "coordOCR"
     )
 
-    return Page(image_file=image_file, ocr_file=ocr_file)
+    return Page(
+        image_file=image_file,
+        ocr_file=ocr_file,
+        label=page_elem.get("LABEL"),
+        order_label=page_elem.get("ORDERLABEL"),
+        order=page_elem.get("ORDER"),
+    )
 
 
 def _map_file_ids(tree: etree) -> dict[str, FileDef]:
