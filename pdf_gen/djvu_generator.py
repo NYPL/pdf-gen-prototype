@@ -4,6 +4,8 @@ import typing
 from lxml import etree
 from reportlab.pdfgen import canvas
 
+_RENDER_MODE_INVISIBLE = 3
+
 
 @dataclasses.dataclass
 class Word:
@@ -13,6 +15,14 @@ class Word:
     x2: int
     y2: int
 
+
+@dataclasses.dataclass
+class TOCEntry:
+    x1: int
+    y1: int
+    x2: int
+    y2: int
+    order_label: str
 
 
 def generate_pdf_page(djvu_filename: str, image_filename: str, out_filename: str):
@@ -31,7 +41,7 @@ def generate_pdf_page(djvu_filename: str, image_filename: str, out_filename: str
     for words in _iterlines(root):
         for word in words:
             text = pdf.beginText()
-            text.setTextRenderMode(3)
+            text.setTextRenderMode(_RENDER_MODE_INVISIBLE)
             # Note this doesn't account for if the words are angled, but I don't
             # think these files contain enough information to do something about
             # that!
@@ -43,6 +53,29 @@ def generate_pdf_page(djvu_filename: str, image_filename: str, out_filename: str
 
     pdf.showPage()
     pdf.save()
+
+
+def iter_toc_data(djvu_filename: str):
+    print(djvu_filename)
+    tree = etree.parse(djvu_filename)
+    root = tree.getroot()
+    obj = root.find(".//OBJECT")
+    page_height = int(obj.get("height"))
+    for words in _iterlines(root):
+        # Assume a single word or less line is not a TOC entry smh
+        if len(words) <= 1:
+            continue
+        first_word = words[0]
+        last_word = words[-1]
+        yield TOCEntry(
+            x1=first_word.x1,
+            y1=(page_height - first_word.y1),
+            x2=last_word.x2,
+            y2=(page_height - last_word.y2),
+            # This is a HUUUGE ASSUMPTION lol, basically assuming the last word in the line is
+            # the page number. Not a ton we can do here tbh
+            order_label=last_word.w,
+        )
 
 
 def _iterlines(root) -> typing.Iterator[list[Word]]:

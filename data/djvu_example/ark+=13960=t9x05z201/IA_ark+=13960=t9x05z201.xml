@@ -11,12 +11,12 @@
       <METS:xmlData>
         <record xmlns="http://www.loc.gov/MARC21/slim">
   <leader>01118nam a22003011a 4500</leader><controlfield tag="001">uc2.ark:/13960/t9x05z201</controlfield><controlfield tag="003">MiAaHDL</controlfield><controlfield tag="005">20190104000000.0</controlfield><controlfield tag="006">m        d        </controlfield><controlfield tag="007">cr bn ---auaua</controlfield><controlfield tag="008">860402s1920    enkc          00010 eng  </controlfield>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <datafield tag="010" ind1=" " ind2=" ">
     <subfield code="a">   84117804</subfield>
   </datafield>
@@ -84,12 +84,12 @@
     <subfield code="a">African American writers collection.</subfield>
     <subfield code="5">CU-BANC</subfield>
   </datafield>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <datafield tag="974" ind1=" " ind2=" ">
     <subfield code="8">ia.springinnewhamp00mckarich</subfield>
     <subfield code="d">20190105</subfield>
